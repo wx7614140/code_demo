@@ -1,0 +1,52 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: Jta Demo Application
+  jta:
+    enabled: true
+    transaction-manager-id: tx-manager
+    atomikos:
+      properties:
+        log-base-name: tmlog
+        log-base-dir: ./tmlog
+        enable-logging: true
+  datasource:
+    datasource1:
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      max-pool-size: 15
+      min-pool-size: 5
+      test-query: SELECT 1
+      pool-name: HikariCP1
+      url: jdbc:mysql://127.0.0.1:3306/test1?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+      username: root
+      password: 111111
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      initialization-mode: always
+      continue-on-error: true
+      unique-resource-name: datasource1
+      mapper-locations: classpath:mapper/datasource1/*.xml
+      configuration.jdbc-type-for-null: null
+      type-aliases-package: org.febsteam.demos.jta.dap.datasource1
+      global-config.banner: false
+    datasource2:
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      max-pool-size: 15
+      min-pool-size: 5
+      test-query: SELECT 1
+      pool-name: HikariCP2
+      url: jdbc:mysql://127.0.0.1:3306/test2?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+      username: root
+      password: 111111
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      initialization-mode: always
+      continue-on-error: true
+      unique-resource-name: datasource2
+      mapper-locations: classpath:mapper/datasource2/*.xml
+      configuration.jdbc-type-for-null: null
+      type-aliases-package: org.febsteam.demos.jta.dap.datasource2
+      global-config.banner: false
