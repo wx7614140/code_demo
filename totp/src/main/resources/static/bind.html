@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img" src="/init2fa?token=123456">
+<form action="/confirm2fa" method="POST">
+    <label for="token">Token</label>
+    <input name="token" id="token" autofocus/>
+    <br><br>
+    <label for="code">TOTP</label>
+    <input name="code" id="code">
+    <br><br>
+    <button type="Submit">Bind</button>
+</form>
+</body>
+</html>
